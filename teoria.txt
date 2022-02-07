@@ -1,0 +1,23 @@
+View -> Endpoints
+Endpoint -> Endereço da internet -> URL `minhaapi.com.br/usuarios`
+Status HTTP Code
+URL -> Protocolos HTTP
+    - GET (Pegar um ou vários)
+        - Path params --> `minhaapi.com.br/usuarios/12/` --> {"error": "Usuário não existe"} (404)
+        - Query params --> `minhaapi.com.br/usuarios?last=10&name=vitor`
+    - POST (Criar)
+        - Body (Corpo de mensagem) --> POST `minhapi.com.br/usuarios` {"seila": "Josefina"}
+        - Path params --> `minhaapi.com.br/usuarios/12/`
+        - Query params --> `minhaapi.com.br/usuarios/12/?last=10&name=vitor` {"seila": "Josefina"}
+    - PUT (Atualizar)
+        - Body (Corpo de mensagem) --> PUT `minhapi.com.br/usuarios/12/` {"name": "Josefina"}
+        - Path params --> `minhaapi.com.br/usuarios/12/`
+        - Query params --> `minhaapi.com.br/usuarios?last=10&name=vitor`
+    - DELETE
+        - Path params --> `minhaapi.com.br/usuarios/12/` -> ``
+        - Query params --> `minhaapi.com.br/usuarios?last=10&name=vitor`
+
+# Todo endpoint normalmente vai ser uma função atrelada à um protocolo HTTP e com entradas e sáida
+def pegar_usuarios():
+    usuarios = db.get_users()
+    return usuarios
